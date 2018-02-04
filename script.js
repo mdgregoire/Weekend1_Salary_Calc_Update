@@ -49,11 +49,6 @@ function removeEmployee (idToRemove){
         return val-employeeArray[i].annualSalary;});
       employeeArray.splice(i, 1);
       appendInput (employeeArray);//calls the appendInput function, passing it the spliced array
-    }//end for loop to check for and remove employee number
-  }//end removeEmployee
-
-
-
-
-
-}
+    }//end if statement
+  }//end for loop to check for and remove employee number
+}//end removeEmployee
