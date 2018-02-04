@@ -10,8 +10,7 @@ $(document).ready(function(){
     };//end create employeeInput
     //if-else statement below is a check for all required data being inputed and if it is the correct type
     if (isNaN(employeeInput.annualSalary)){
-      alert ('Error! Please enter a number for the Annual Salary.');}
-      //end check for number in the salary field
+      alert ('Error! Please enter a number for the Annual Salary.');}//end check for number in the salary field
     else if(employeeInput.eFirstName && employeeInput.eLastName && employeeInput.idNumber && employeeInput.jobTitle && employeeInput.annualSalary){
       employeeArray.push(employeeInput);
       $('#salaryCount').html(function(i, val) {
@@ -22,8 +21,7 @@ $(document).ready(function(){
       appendInput (employeeArray);
     }//end data check -- true and if so write to the DOM
     else{
-      alert ('Error! Please enter all required fields.');
-    }//end data check -- false
+      alert ('Error! Please enter all required fields.');}//end data check -- false
   });//end on click submit
 
   $('#tbody').on('click', '.removeData', function(){
@@ -35,7 +33,7 @@ $(document).ready(function(){
     $('#salaryCount').html(function(i, val) {
        return 0;});
        calculateMonthlySalary(0);//end salary clear
-       employeeArray = [];//resetting employee array
+       employeeArray = [];//resetting employee array on clear all
   });//end clear all button
 });//end document ready
 
@@ -55,7 +53,7 @@ function appendInput (arrayToWrite){
 
 function calculateMonthlySalary(salary){
 $('#monthyCount').html(function(i, val){
-    return (salary/12).toFixed(0);});
+    return (salary/12).toFixed(2);});//removes extra decimal places
 }//end calculateMonthlySalary function
 
 function removeEmployee (idToRemove){
