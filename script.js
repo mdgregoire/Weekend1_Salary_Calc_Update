@@ -11,13 +11,14 @@ $('#submitButton').on('click', function(){
     annualSalary : $('#annualSalary').val(),
   };//end create employeeInput
 
+
 if(employeeInput.eFirstName && employeeInput.eLastName && employeeInput.idNumber && employeeInput.jobTitle && employeeInput.annualSalary){
   employeeArray.push(employeeInput);//pushes to the employeeArray
   $('#salaryCount').html(function(i, val) {
      return val*1+parseInt(employeeInput.annualSalary);});//end salary count
   $('.inputField').each(function(){$(this).val("");});//end clear fields function
 
-  appendInput (employeeInput);
+  appendInput (employeeInput);//calls appendInput function
 }//end data check -- true
 else{
   alert ('Error! Please enter all required fields.');
