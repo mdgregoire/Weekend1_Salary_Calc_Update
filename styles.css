@@ -1,0 +1,24 @@
+/*
+Background and Text Color */
+html body{
+  background-color: #cae9fc;
+  font-family: Helvetica;
+}
+
+h1{
+color: #7C8700;
+margin-left: 3%;
+}
+h2{
+color: #4A2105;
+margin-left: 2%;
+}
+h3{
+color: #1a164c;
+margin-left: 2%;
+}
+h4{
+color: #7c4ae8;
+margin-left: 2%;
+}
+/* End Background and Text Color */
