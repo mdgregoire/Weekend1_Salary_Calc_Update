@@ -15,10 +15,10 @@ $(document).ready(function(){
     else if(employeeInput.eFirstName && employeeInput.eLastName && employeeInput.idNumber && employeeInput.jobTitle && employeeInput.annualSalary){
       employeeArray.push(employeeInput);
       $('#salaryCount').html(function(i, val) {
-         return val*1+parseInt(employeeInput.annualSalary);});//end salary count, converts salary to a number
+         return parseInt(val)+parseInt(employeeInput.annualSalary);});//end salary count, converts salary to a number
       $('.inputField').each(function(){$(this).val("");});//resets the input fields after a sucessful creation
       appendInput (employeeArray);
-    }//end data check -- true
+    }//end data check -- true and if so write to the DOM
     else{
       alert ('Error! Please enter all required fields.');
     }//end data check -- false
