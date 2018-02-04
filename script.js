@@ -23,6 +23,7 @@ $(document).ready(function(){
       alert ('Error! Please enter all required fields.');
     }//end data check -- false
   });//end on click submit
+
   $('#tbody').on('click', '.removeData', function(){
     removeEmployee ($(this).data('id'));
   });//end call to removeEmployee
@@ -38,14 +39,21 @@ $(document).ready(function(){
 function appendInput (arrayToWrite){
   $('#tbody').empty();//empties the table to avoid double entries
   for(i=0; i<arrayToWrite.length; i++){
-    $('.employeeTable').append('<tr><td>'+arrayToWrite[i].eLastName+'</td><td>'+arrayToWrite[i].eFirstName+'</td><td>'+arrayToWrite[i].idNumber+'</td><td>'+arrayToWrite[i].jobTitle+'</td><td>'+arrayToWrite[i].annualSalary+'</td><td><button class="removeData" data-id="' + arrayToWrite[i].idNumber + '">Remove</button></td></tr>');
+    var stringToAppend = '';
+    stringToAppend = '<tr><td>'+arrayToWrite[i].eLastName;
+    stringToAppend += '</td><td>'+arrayToWrite[i].eFirstName;
+    stringToAppend += '</td><td>'+arrayToWrite[i].idNumber;
+    stringToAppend += '</td><td>'+arrayToWrite[i].jobTitle;
+    stringToAppend += '</td><td>'+arrayToWrite[i].annualSalary;
+    stringToAppend += '</td><td><button class="removeData" data-id="' + arrayToWrite[i].idNumber + '">Remove</button></td></tr>';
+    $('.employeeTable').append(stringToAppend);
   }//end for loop that writes employee data
 }//end appendInput function
 
 function removeEmployee (idToRemove){
   for (i=0; i<employeeArray.length; i++){
     if(idToRemove == employeeArray[i].idNumber){  //uses id number incase of duplicate last names
-      $('#salaryCount').html(function(i, val){
+      $('#salaryCount').html(function(index, val){
         return val-employeeArray[i].annualSalary;});
       employeeArray.splice(i, 1);
       appendInput (employeeArray);//calls the appendInput function, passing it the spliced array
