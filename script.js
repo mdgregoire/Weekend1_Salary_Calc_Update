@@ -39,16 +39,16 @@ $(document).ready(function(){
 
 function appendInput (arrayToWrite){
   $('#tbody').empty();//empties the table to avoid double entries
-  for(i=0; i<arrayToWrite.length; i++){
+  arrayToWrite.forEach(function(employeeInfo){
     var stringToAppend = '';
-    stringToAppend = '<tr><td>'+arrayToWrite[i].eLastName;
-    stringToAppend += '</td><td>'+arrayToWrite[i].eFirstName;
-    stringToAppend += '</td><td>'+arrayToWrite[i].idNumber;
-    stringToAppend += '</td><td>'+arrayToWrite[i].jobTitle;
-    stringToAppend += '</td><td>'+arrayToWrite[i].annualSalary;
-    stringToAppend += '</td><td><button class="removeData" data-id="' + arrayToWrite[i].idNumber + '">Remove</button></td></tr>';
+    stringToAppend = '<tr><td>'+employeeInfo.eLastName;
+    stringToAppend += '</td><td>'+employeeInfo.eFirstName;
+    stringToAppend += '</td><td>'+employeeInfo.idNumber;
+    stringToAppend += '</td><td>'+employeeInfo.jobTitle;
+    stringToAppend += '</td><td>'+employeeInfo.annualSalary;
+    stringToAppend += '</td><td><button class="removeData" data-id="' + employeeInfo.idNumber + '">Remove</button></td></tr>';
     $('.employeeTable').append(stringToAppend);
-  }//end for loop that writes employee data
+  });//end for loop that writes employee data
 }//end appendInput function
 
 function calculateMonthlySalary(salary){
