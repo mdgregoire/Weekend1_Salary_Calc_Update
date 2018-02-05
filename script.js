@@ -8,10 +8,9 @@ $(document).ready(function(){
       jobTitle : $('#jobTitle').val(),
       annualSalary : $('#annualSalary').val(),
     };//end create employeeInput
-    //if-else statement below is a check for all required data being inputed and if it is the correct type
-    if (isNaN(employeeInput.annualSalary)){
-      alert ('Error! Please enter a number for the Annual Salary.');}//end check for number in the salary field
-    else if(employeeInput.eFirstName && employeeInput.eLastName && employeeInput.idNumber && employeeInput.jobTitle && employeeInput.annualSalary){
+    //if-else statement below is a check for all required data being inputed
+
+if(employeeInput.eFirstName && employeeInput.eLastName && employeeInput.idNumber && employeeInput.jobTitle && employeeInput.annualSalary){
       employeeArray.push(employeeInput);
       $('#salaryCount').html(function(i, val) {
         var totalAnnualSalary = parseInt(val)+parseInt(employeeInput.annualSalary);
